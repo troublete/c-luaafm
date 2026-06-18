@@ -16,8 +16,10 @@ make all
 ```lua
 require("luaafm")
 
-local s = session("system prompt")
+local s = session("optional system prompt")
 local result = inference(s, "prompt")
+
+close_session(s) -- required for memory management
 ```
 
 ## License

@@ -22,9 +22,18 @@ int afminference(lua_State *L) {
 	return 1;
 }
 
+int afmclosesession(lua_State *L) {
+	void* sess = lua_touserdata(L, 1);
+	close_session(sess);
+	return 0;
+}
+
 int luaopen_luaafm(lua_State *L) {
 	lua_pushcfunction(L, afmsession);
 	lua_setglobal(L, "session");
+
+	lua_pushcfunction(L, afmclosesession);
+	lua_setglobal(L, "close_session");
 
 	lua_pushcfunction(L, afminference);
 	lua_setglobal(L, "inference");
