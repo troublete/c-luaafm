@@ -1,0 +1,5 @@
+afm
+afm.h
+afm.a
+lua*
+!luaafm.c
